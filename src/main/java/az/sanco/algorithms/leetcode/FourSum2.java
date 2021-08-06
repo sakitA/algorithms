@@ -17,9 +17,7 @@ public class FourSum2 {
 
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
         Map<Integer, Set<List<Integer>>> map = mapSet(nums3, nums4);
-
         int count = 0;
-
         Arrays.sort(nums1);
         Arrays.sort(nums2);
 

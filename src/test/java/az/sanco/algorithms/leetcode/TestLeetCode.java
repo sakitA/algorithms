@@ -3,6 +3,11 @@ package az.sanco.algorithms.leetcode;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 /**
  * Created by sanco on 12.07.21.
  * algorithms
@@ -158,5 +163,271 @@ public class TestLeetCode {
 
         dz.duplicateZeros(arr);
         Assert.assertArrayEquals(exp, arr);
+    }
+
+    @Test
+    public void peakElement(){
+        FindPeakElement fpe = new FindPeakElement();
+        int[] arr = {1,2,3,1};
+        int exp = 2;
+        Assert.assertEquals(exp, fpe.findPeakElement(arr));
+        arr = new int[]{1,2,1,3,5,6,4};
+        int res = fpe.findPeakElement(arr);
+        Assert.assertTrue(res==1 || res==5);
+
+        arr = new int[]{0, 1};
+        res = fpe.findPeakElement(arr);
+        Assert.assertEquals(1, res);
+
+        arr = new int[]{0};
+        res = fpe.findPeakElement(arr);
+        Assert.assertTrue(res==0);
+
+        arr = new int[]{6, 5, 6};
+        res = fpe.findPeakElement(arr);
+        Assert.assertTrue(res==0 || res==2);
+
+        arr = new int[]{1, 3, 1};
+        res = fpe.findPeakElement(arr);
+        Assert.assertTrue(res==1);
+    }
+
+    @Test
+    public void preOrder(){
+        TraverseTree tt = new TraverseTree();
+        TreeNode root = ObjectFactory.createBinaryTree(Arrays.asList(1, null, 2, 3));
+
+        List<Integer> result = tt.preOrderTraverse(new ArrayList<>(), root);
+        List<Integer> expected = Arrays.asList(1,2,3);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList());
+
+        result = tt.preOrderTraverse(new ArrayList<>(), root);
+        expected = Arrays.asList();
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1));
+
+        result = tt.preOrderTraverse(new ArrayList<>(), root);
+        expected = Arrays.asList(1);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1,2));
+
+        result = tt.preOrderTraverse(new ArrayList<>(), root);
+        expected = Arrays.asList(1,2);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1,null,2));
+
+        result = tt.preOrderTraverse(new ArrayList<>(), root);
+        expected = Arrays.asList(1,2);
+
+        Assert.assertEquals(expected, result);
+    }
+
+    @Test
+    public void preOrderWithIterate(){
+        TraverseTree tt = new TraverseTree();
+        TreeNode root = ObjectFactory.createBinaryTree(Arrays.asList(1, null, 2, 3));
+
+        List<Integer> result = tt.preOrderTraverse(root);
+        List<Integer> expected = tt.preOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList());
+
+        result = tt.preOrderTraverse(root);
+        expected = tt.preOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1));
+
+        result = tt.preOrderTraverse(root);
+        expected = tt.preOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1,2));
+
+        result = tt.preOrderTraverse(root);
+        expected = tt.preOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1,null,2));
+
+        result = tt.preOrderTraverse(root);
+        expected = tt.preOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+    }
+
+    @Test
+    public void inOrderWithIterate(){
+        TraverseTree tt = new TraverseTree();
+        TreeNode root = ObjectFactory.createBinaryTree(Arrays.asList(1, null, 2, 3));
+
+        List<Integer> result = tt.inOrderTraverse(root);
+        List<Integer> expected = tt.inOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList());
+
+        result = tt.inOrderTraverse(root);
+        expected = tt.inOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1));
+
+        result = tt.inOrderTraverse(root);
+        expected = tt.inOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1,2));
+
+        result = tt.inOrderTraverse(root);
+        expected = tt.inOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1,null,2));
+
+        result = tt.inOrderTraverse(root);
+        expected = tt.inOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+    }
+
+    @Test
+    public void postOrderWithIterate(){
+        TraverseTree tt = new TraverseTree();
+        TreeNode root = ObjectFactory.createBinaryTree(Arrays.asList(1, null, 2, 3));
+
+        List<Integer> result = tt.postOrderTraverse(root);
+        List<Integer> expected = tt.postOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList());
+
+        result = tt.postOrderTraverse(root);
+        expected = tt.postOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1));
+
+        result = tt.postOrderTraverse(root);
+        expected = tt.postOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1,2));
+
+        result = tt.postOrderTraverse(root);
+        expected = tt.postOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+
+        root = ObjectFactory.createBinaryTree(Arrays.asList(1,null,2));
+
+        result = tt.postOrderTraverse(root);
+        expected = tt.postOrderTraverse(new ArrayList<>(), root);
+
+        Assert.assertEquals(expected, result);
+    }
+
+    @Test
+    public void pushDominoes(){
+        PushDominoes pd = new PushDominoes();
+
+//        System.out.println(pd.pushDominoes("R...L"));
+        System.out.println(pd.pushDominoes("R.L.R"));
+    }
+
+    @Test
+    public void partitionDisjoint(){
+        Array a = new Array();
+
+        int ans = a.partitionDisjoint(new int[]{5,0,3,8,6});
+        int exp = 3;
+        Assert.assertEquals(exp, ans);
+
+        ans = a.partitionDisjoint(new int[]{1,1,1,0,6,12});
+        exp = 4;
+        Assert.assertEquals(exp, ans);
+
+        ans = a.partitionDisjoint(new int[]{90,47,69,10,43,92,31,73,61,97});
+        exp = 9;
+        Assert.assertEquals(exp, ans);
+
+    }
+
+    @Test
+    public void pruneTree(){
+        TraverseTree tt = new TraverseTree();
+
+        TreeNode root = tt.pruneTree(ObjectFactory.createBinaryTree(Arrays.asList(1,null,0,0,1)));
+        String ans = ObjectFactory.printTree(root);
+        String exp = "[1,null,0,null,1]";
+
+        Assert.assertEquals(exp,ans);
+
+        root = tt.pruneTree(ObjectFactory.createBinaryTree(Arrays.asList(1,0,1,0,0,0,1)));
+        ans = ObjectFactory.printTree(root);
+        exp = "[1,null,1,null,1]";
+
+        Assert.assertEquals(exp,ans);
+
+        root = tt.pruneTree(ObjectFactory.createBinaryTree(Arrays.asList(1,1,0,1,1,0,1,0)));
+        ans = ObjectFactory.printTree(root);
+        exp = "[1,1,0,1,1,null,1]";
+
+        Assert.assertEquals(exp,ans);
+    }
+
+    @Test
+    public void sortedArrayToBST(){
+        TraverseTree tt = new TraverseTree();
+
+        TreeNode ans = tt.sortedArrayToBST(new int[]{-93,-89,-85,-76,-56,-53,-20,-10,20,28,41,50,66,70,87,88,91,94});
+    }
+
+    @Test
+    public void validBST(){
+        TraverseTree tt = new TraverseTree();
+        System.out.println(tt.isValidBST(ObjectFactory.createBinaryTree(Arrays.asList(5,1,4,null,null,3,6))));
+    }
+
+    @Test
+    public void threeClosestSum(){
+        RandomProblems rp = new RandomProblems();
+        Random r = new Random();
+        int len = 3+r.nextInt(998);
+        int[] nums = new int[len];
+        for(int i=0;i<len;i++){
+            nums[i] = (r.nextInt()%2==0? 1:-1) *r.nextInt(1001);
+        }
+
+        int target = (r.nextInt()%2==0? 1:-1) *r.nextInt(10001);
+
+        int ans = rp.threeSumClosest(nums.clone(), target);
+        int exp = rp.threeSumClosestBF(nums, target);
+        if(ans!=exp){
+            System.out.println(nums);
+            System.out.println(target);
+        }
+        Assert.assertEquals(exp, ans);
     }
 }
